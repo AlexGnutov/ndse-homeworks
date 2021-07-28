@@ -1,0 +1,14 @@
+{
+  "name": "002-console",
+  "version": "1.0.0",
+  "description": "Task 1 and 2 for Lecture 2",
+  "main": "l2_task1.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Gnutov A",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "yargs": "^17.0.1"
+  }
+}
