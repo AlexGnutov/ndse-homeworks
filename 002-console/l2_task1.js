@@ -7,7 +7,7 @@ const date = new Date(); //Создаём объект даты
 const cmdArr = argv['_']; // Выделяем команды в отдельный массив для удобства
 
 //Осуществляем первоначальное ветвление на current, add и sub
-if (cmdArr.includes('cmd')) {
+if (cmdArr[0] === 'cmd') {
     if (cmdArr.includes('current')) {
         if (!currentCmdHandler()) {
             console.log(date.toISOString());
