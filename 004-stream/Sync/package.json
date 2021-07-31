@@ -1,0 +1,15 @@
+{
+  "dependencies": {
+    "yargs": "^17.0.1"
+  },
+  "name": "l4sync",
+  "version": "1.0.0",
+  "main": "index_sync.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}
