@@ -3,14 +3,11 @@ const http = require('http');
 const dotenv = require('dotenv');
 const yargs = require('yargs');
 const {hideBin} = require('yargs/helpers');
+const {httpLink, accessKey} = require('./config.js'); //Get envars
 
 //Read command line arguments
 const argv = yargs(hideBin(process.argv)).argv;
 const cityName = argv._[0];
-
-//Get env varibles
-const httpLink = process.env.httpLink;
-const accessKey = process.env.weatherAPIKey;
 
 //Format inquery URL
 const url = `${httpLink}?access_key=${accessKey}&query=${cityName}`; 
