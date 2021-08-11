@@ -8,7 +8,7 @@ const {Book} = require('./library.js'); //Book class description
 //Define library array and three test books
 const library = [];
 [1, 2, 3].map(el => {
-    const newBook = new Book('','','','','');
+    const newBook = new Book('','','','','','');
     library.push(newBook);
 });
 
