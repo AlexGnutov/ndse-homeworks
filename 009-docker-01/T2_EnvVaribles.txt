@@ -1,0 +1,61 @@
+(!) Прошу принять эту задачу без удаления image - я работаю через мобильный интернет и удалять накладно получается
+(!) Вариант 1 - просто вставляем код в строку, контейнер для удобства "глушим" автоматически
+
+PS C:\src> docker images
+REPOSITORY   TAG       IMAGE ID       CREATED        SIZE 
+node         15.14     3d3f41722daf   3 months ago   936MB
+PS C:\src> docker run --rm -it -e name=alexey -e surname=gnutov --name mynode node:15.14
+Welcome to Node.js v15.14.0.      
+Type ".help" for more information.
+> const firstname = process.env.name || "default";const surname = process.env.surname || "default";console.log(`Привет, ${firstname} ${surname}`);
+Привет, alexey gnutov
+undefined
+>
+(To exit, press Ctrl+C again or Ctrl+D or type .exit)
+>
+PS C:\src> docker ps
+CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
+PS C:\src> docker ps -a
+CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
+PS C:\src>    
+
+(!) Вариант 2 - подтягиваем файл из среды
+
+PS C:\src> docker run --rm -it -e name=alexey -e surname=gnutov --name mynode node:15.14
+Welcome to Node.js v15.14.0.      
+Type ".help" for more information.
+> .load index.js
+Failed to load: index.js 
+
+(->) это не работает, т.к. не открыта папка, делаем вот так:
+
+PS C:\src> docker run -it --rm -e name=alexey -e surname=gnutov --name mynode -v c:\src:/usr/src/app -w /usr/src/app node:15.14
+Welcome to Node.js v15.14.0.      
+Type ".help" for more information.
+> .load index.js
+const firstname = process.env.name || "default";
+const surname = process.env.surname || "default";
+console.log(`Привет, ${firstname} ${surname}`);
+Привет, alexey gnutov
+undefined
+>
+
+(!) Вариант 3 - делаем через exec
+
+PS C:\src> docker run -it -e name=alexey -e surname=gnutov --name mynode -v c:\src:/usr/src/app -w /usr/src/app node:15.14     
+Welcome to Node.js v15.14.0.
+Type ".help" for more information.
+>
+(To exit, press Ctrl+C again or Ctrl+D or type .exit)
+> .exit
+PS C:\src> docker start mynode
+mynode
+PS C:\src> docker exec mynode node index.js
+Привет, alexey gnutov
+PS C:\src> docker stop mynode
+mynode
+PS C:\src> docker rm mynode  
+mynode
+PS C:\src> docker ps -a
+CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
+PS C:\src> 

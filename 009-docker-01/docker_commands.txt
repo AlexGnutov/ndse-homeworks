@@ -1,0 +1,43 @@
+//////////////////////////////////////////
+//Docker helps, and this helps dockerer!//
+//////////////////////////////////////////
+
+//docker ps
+//docker ps -a
+//docker stop mynode
+//docker start mynode
+
+/*Task 1 - Docker CLI*/
+//docker pull busybox
+//docker run -i -t --name pinger busybox ping -c 7 netology.ru
+//docker ps -a
+//docker logs pinger
+//docker start pinger
+//docker ps -a
+//docker logs pinger
+//docker rm pinger
+//docker rmi busybox
+
+/*Task 2 - variant 1*/
+//docker images
+//docker run --rm -it -e name=alexey -e surname=gnutov --name mynode node:15.14
+
+/*Task 2 - variant 2 + 3*/
+//docker run -it --rm -e name=alexey -e surname=gnutov --name mynode -v c:\src:/usr/src/app -w /usr/src/app node:15.14
+//.load index.js
+//docker exec mynode node index.js
+//docker rm mynode
+
+/*Task 3*/
+//docker images
+//docker run -d -t --name first_node -v c:\src\data:/var/first/data node:15.14
+//docker run -d -t --name second_node -v c:\src\data:/var/second/data node:15.14
+
+//docker exec first_node ls /var/first/data
+//docker exec first_node touch /var/first/data/first.txt
+//docker exec second_node ls /var/second/data
+//docker stop first_node second_node
+//docker ps -a
+//docker rm first_node second_node
+//docker ps -a
+
