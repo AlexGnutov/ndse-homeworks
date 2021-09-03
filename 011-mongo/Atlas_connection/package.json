@@ -1,0 +1,26 @@
+{
+  "name": "006-express",
+  "version": "1.0.0",
+  "description": "**Правила выполнения домашней работы:** \r * Выполняйте домашнее задание в отдельной ветке проекта на гитхабе.\r * В поле для сдачи работы прикрепите ссылку на ваш проект в Git.\r * Присылать на проверку можно каждую задачу по отдельности или все задачи вместе. \r * Во время проверки по частям ваша домашняя работа будет со статусом «На доработке».\r * Любые вопросы по решению задач задавайте в Slack.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon -r dotenv/config index.js",
+    "start": "node index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "ejs": "^3.1.6",
+    "express": "^4.17.1",
+    "express-form-data": "^2.0.17",
+    "mongoose": "^5.13.8",
+    "multer": "^1.4.3",
+    "node-random-id": "^1.0.1"
+  },
+  "devDependencies": {
+    "dotenv": "^10.0.0",
+    "nodemon": "^2.0.12"
+  }
+}
