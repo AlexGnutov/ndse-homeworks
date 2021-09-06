@@ -1,0 +1,40 @@
+<%- include("../partials/layout-start.ejs");%>
+<%- include("../partials/menu.ejs", {user: user});%>
+
+<h1>Login Page</h1>
+
+<h2>Enter your data to login</h2>
+<form action="/api/user/login" method="post" enctype="multipart/form-data">
+    <div>
+        <label>Username:</label>
+        <input type="text" name="username" /><br />
+    </div>
+    <div>
+        <label>Password:</label>
+        <input type="password" name="password" />
+    </div>
+    <div>
+        <input type="submit" value="Login" />
+    </div>
+</form>
+
+<h2>Enter your data to register</h2>
+<form action="/api/user/signup" method="post" enctype="multipart/form-data">
+    <div>
+        <label>Username:</label>
+        <input type="text" name="username" /><br />
+    </div>
+    <div>
+        <label>Password:</label>
+        <input type="password" name="password" />                
+    </div>
+    <div>
+        <label>Password:</label>
+        <input type="text" name="information" />
+    </div>
+    <div>
+        <input type="submit" value="Signup" />
+    </div>
+</form>
+
+<%- include("../partials/layout-end.ejs") %>
