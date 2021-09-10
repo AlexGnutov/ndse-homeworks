@@ -1,0 +1,11 @@
+<%- include("./partials/layout-start.ejs");%>
+<%- include("./partials/menu.ejs", {user: user});%>
+
+<% if (!user) { %>
+    <h1><%=title%></h1> 
+    <p>Please <a href="/api/user/login">log in</a>.</p>
+<% } else { %>
+    <h1>Hello, <%= user.username %>. View your <a href="/api/user/me">profile</a>.</h1>
+<% } %>
+
+<%- include("./partials/layout-end.ejs") %>
